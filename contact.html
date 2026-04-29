@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liên hệ - Portfolio</title>
+    <style>
+        :root {
+            --background: #f5f7fb;
+            --card: #ffffff;
+            --text: #1f2937;
+            --muted: #6b7280;
+            --primary: #2563eb;
+            --shadow: 0 20px 45px rgba(15, 23, 42, 0.12);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: Inter, system-ui, sans-serif;
+            background: linear-gradient(180deg, #eef2ff 0%, #f8fafc 100%);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0 24px 40px;
+        }
+
+        /* Navbar đồng bộ với trang chủ */
+        .navbar {
+            width: min(100%, 960px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            margin-bottom: 20px;
+        }
+
+        .logo { font-weight: 800; font-size: 1.5rem; color: var(--primary); text-decoration: none; }
+        
+        .nav-auth { display: flex; gap: 10px; }
+
+        .container {
+            width: min(100%, 960px);
+            background: var(--card);
+            border-radius: 45px;
+            box-shadow: var(--shadow);
+            padding: 60px;
+        }
+
+        h1 { font-size: 2.5rem; margin-bottom: 24px; color: var(--text); }
+        p { font-size: 1.1rem; line-height: 1.8; color: var(--muted); margin-bottom: 20px; }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #e2e8f0;
+            border-radius: 15px;
+            outline: none;
+            font-size: 1rem;
+            font-family: inherit;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .button {
+            display: inline-flex;
+            padding: 12px 24px;
+            border-radius: 999px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: 0.3s;
+            font-size: 0.9rem;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary { background: var(--primary); color: white; }
+
+        .back-link {
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .back-link a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        @media (max-width: 600px) {
+            .container { padding: 40px 24px; border-radius: 35px; }
+            h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html" class="logo">PORTFOLIO</a>
+        <div class="nav-auth">
+            <a href="login.html" class="button btn-outline">Login</a>
+            <a href="register.html" class="button btn-primary">Create Account</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Liên hệ với tôi</h1>
+        <p>Nếu bạn có câu hỏi hoặc muốn hợp tác, hãy gửi tin nhắn cho tôi. Tôi sẽ trả lời sớm nhất có thể.</p>
+
+        <form class="contact-form" action="#" method="post" id="contactForm">
+            <div class="form-group">
+                <label for="name">Tên của bạn</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Tin nhắn</label>
+                <textarea id="message" name="message" required></textarea>
+            </div>
+            <button type="submit" class="button btn-primary">Gửi tin nhắn</button>
+        </form>
+
+        <script>
+            document.getElementById('contactForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                const name = document.getElementById('name').value.trim();
+                const email = document.getElementById('email').value.trim();
+                const message = document.getElementById('message').value.trim();
+
+                if (!name || !email || !message) {
+                    alert('Vui lòng điền đầy đủ thông tin.');
+                    return;
+                }
+
+                if (!/\S+@\S+\.\S+/.test(email)) {
+                    alert('Email không hợp lệ.');
+                    return;
+                }
+
+                alert('Cảm ơn bạn đã liên hệ! (Đây là demo, tin nhắn chưa được gửi.)');
+                this.reset();
+            });
+        </script>
+
+        <div class="back-link">
+            <a href="index.html">← Quay về trang chủ</a>
+        </div>
+    </div>
+</body>
+</html></content>
+<parameter name="filePath">/workspaces/My-webstide/contact.html

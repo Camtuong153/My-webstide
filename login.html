@@ -16,11 +16,31 @@
     <div class="card">
         <h2>Đăng nhập</h2>
         <p style="color: #6b7280; margin-bottom: 20px;">Chào mừng bạn quay trở lại</p>
-        <input type="email" placeholder="Email của bạn">
-        <input type="password" placeholder="Mật khẩu">
-        <button class="btn">Đăng nhập</button>
+        <input type="email" placeholder="Email của bạn" id="email">
+        <input type="password" placeholder="Mật khẩu" id="password">
+        <button class="btn" id="loginBtn">Đăng nhập</button>
         <a href="register.html" class="back">Chưa có tài khoản? Đăng ký ngay</a>
         <a href="index.html" class="back">← Quay về trang chủ</a>
     </div>
+
+    <script>
+        document.getElementById('loginBtn').addEventListener('click', function() {
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value.trim();
+
+            if (!email || !password) {
+                alert('Vui lòng nhập email và mật khẩu.');
+                return;
+            }
+
+            const user = JSON.parse(localStorage.getItem('user'));
+            if (user && user.email === email && user.password === password) {
+                alert('Đăng nhập thành công! Chào mừng ' + user.name);
+                // In real app, redirect or set session
+            } else {
+                alert('Email hoặc mật khẩu không đúng.');
+            }
+        });
+    </script>
 </body>
 </html>
