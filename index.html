@@ -25,19 +25,21 @@
             background: linear-gradient(180deg, #eef2ff 0%, #f8fafc 100%);
             color: var(--text);
             min-height: 100vh;
-            /* Căn giữa container trên PC */
             display: flex;
-            align-items: center; 
+            align-items: center;
             justify-content: center;
-            padding: 20px;
+            /* Padding này giúp tạo khoảng trống bên ngoài container trên mobile */
+            padding: 20px; 
         }
 
         .container {
-            /* Giới hạn chiều rộng tối đa trên PC là 1100px để không bị quá loãng */
-            width: 100%;
-            max-width: 1100px; 
+            /* Co vào một chút so với màn hình */
+            width: 94%; 
+            /* Giới hạn độ rộng tối đa trên PC */
+            max-width: 1000px; 
             background: var(--card);
-            border-radius: 28px;
+            /* Độ bo cong góc mạnh mẽ và hiện đại */
+            border-radius: 45px; 
             box-shadow: var(--shadow);
             overflow: hidden;
             margin: auto;
@@ -45,7 +47,6 @@
 
         .hero {
             display: grid;
-            /* Trên PC chia 2 cột tỉ lệ 1.2 : 0.8 để nội dung chính nổi bật */
             grid-template-columns: 1.2fr 0.8fr;
             gap: 40px;
             align-items: center;
@@ -53,14 +54,13 @@
         }
 
         .hero-content {
-            /* Giới hạn độ rộng chữ để dễ đọc trên màn hình rộng */
-            max-width: 600px;
+            max-width: 520px;
         }
 
         .pretitle {
             display: inline-block;
             margin-bottom: 18px;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             letter-spacing: 0.16em;
             text-transform: uppercase;
             color: var(--primary);
@@ -68,18 +68,17 @@
         }
 
         h1 {
-            /* Tăng kích thước chữ tối đa trên PC lên một chút */
-            font-size: clamp(2.2rem, 5vw, 3.8rem);
+            font-size: clamp(2.2rem, 4.5vw, 3.5rem);
             line-height: 1.1;
             margin-bottom: 24px;
             font-weight: 800;
         }
 
         p {
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             line-height: 1.7;
             color: var(--muted);
-            margin-bottom: 35px;
+            margin-bottom: 30px;
         }
 
         .buttons {
@@ -92,8 +91,8 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 16px 32px;
-            border-radius: 14px; /* Bo góc vuông vắn hơn một chút theo xu hướng mới */
+            padding: 15px 28px;
+            border-radius: 18px;
             font-weight: 600;
             text-decoration: none;
             transition: all 0.3s ease;
@@ -118,28 +117,30 @@
         .stats {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            margin-top: 48px;
+            gap: 16px;
+            margin-top: 40px;
         }
 
         .stat {
             background: #f8fafc;
-            border: 1px solid #f1f5f9;
-            border-radius: 16px;
+            border-radius: 20px;
             padding: 20px;
-            transition: 0.3s;
+            text-align: center;
+            border: 1px solid #f1f5f9;
         }
-        
-        .stat:hover { background: #fff; border-color: var(--primary); }
 
         .stat strong {
             display: block;
-            font-size: 1.6rem;
+            font-size: 1.5rem;
             color: var(--primary);
             margin-bottom: 4px;
         }
 
-        .stat span { color: var(--muted); font-size: 0.85rem; font-weight: 500; }
+        .stat span {
+            color: var(--muted);
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
 
         .hero-visual {
             display: grid;
@@ -149,19 +150,26 @@
         .card {
             background: #f8fafc;
             border: 1px solid #e2e8f0;
-            border-radius: 20px;
+            border-radius: 24px;
             padding: 24px;
-            transition: 0.3s;
+            transition: 0.3s ease;
         }
         
-        .card:hover { transform: scale(1.02); background: #fff; }
+        .card:hover {
+            transform: scale(1.02);
+            background: #ffffff;
+            border-color: var(--primary);
+        }
 
-        .card h2 { margin-bottom: 10px; font-size: 1.1rem; color: var(--text); }
-        .card p { font-size: 0.95rem; margin-bottom: 0; }
+        .card h2 {
+            margin-bottom: 10px;
+            font-size: 1.15rem;
+            color: var(--text);
+        }
 
         .footer {
             padding: 30px 60px;
-            background: #fdfdfd;
+            background: #fafafa;
             border-top: 1px solid #f1f5f9;
             display: flex;
             justify-content: space-between;
@@ -170,30 +178,40 @@
             font-size: 0.9rem;
         }
 
-        /* Tối ưu riêng cho Mobile & Tablet nhỏ */
+        /* --- Tối ưu Mobile --- */
         @media (max-width: 900px) {
-            body { padding: 10px; }
-            .container { border-radius: 0; } /* Full màn hình trên mobile cho hiện đại */
-            
+            body {
+                padding: 15px; /* Giữ khoảng cách với mép màn hình điện thoại */
+            }
+
+            .container {
+                width: 100%; /* Trên mobile có thể để full hoặc 95% tùy bạn */
+                border-radius: 35px; /* Vẫn giữ độ bo cong trên điện thoại */
+            }
+
             .hero {
                 grid-template-columns: 1fr;
-                padding: 40px 24px;
+                padding: 45px 24px;
                 text-align: center;
             }
 
-            .hero-content { margin: 0 auto; }
-            
-            .buttons { justify-content: center; }
+            .hero-content {
+                margin: 0 auto;
+            }
+
+            .buttons {
+                justify-content: center;
+            }
 
             .stats {
-                grid-template-columns: 1fr; /* Xếp chồng stats trên mobile */
-                margin-top: 32px;
+                grid-template-columns: 1fr;
             }
 
             .footer {
                 flex-direction: column;
-                text-align: center;
+                gap: 12px;
                 padding: 30px 24px;
+                text-align: center;
             }
         }
     </style>
